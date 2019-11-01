@@ -15,7 +15,7 @@
 @foreach ($animals as $animal)
 
     <div class="card col-md-3" style="margin: 2rem; margin-left: 4rem; text-align: center">
-        <img style="height: 17rem; width: 20rem " src="{{ '/images/'.$animal->photo_url}}" class="card-img-top" alt="...">
+        <img style="height: 14rem; width: 18rem; justify: center " src="{{ '/images/'.$animal->photo_url}}" class="card-img-top" alt="...">
         <div class="card-body">
         <h5 class="card-title">{{ $animal->name }}</h5>
           <ul>
