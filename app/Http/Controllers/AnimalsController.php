@@ -67,7 +67,10 @@ class AnimalsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $animal = Animal::findOrFail($id);
+
+       return view('edit', compact('animal'));
+
     }
 
     /**
@@ -79,7 +82,11 @@ class AnimalsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $animal = Animal::findOrFail($id)->update($request->except(['_token']));
+
+        //$animal->save();
+        
+        return redirect(action('AnimalsController@index'));
     }
 
     /**
@@ -90,6 +97,9 @@ class AnimalsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Animal::destroy($id); 
+        
+        return redirect(action('AnimalsController@index'));
+        
     }
 }
