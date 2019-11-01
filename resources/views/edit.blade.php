@@ -46,7 +46,7 @@
         <input class="form-control" type="text" name="photo_url" value="{{ old('photo_url', $animal->photo_url) }}">
     </div>
 
-    <button type="submit" class="btn btn-primary">Sign up</button>
+    <button type="submit" class="btn btn-success">submit</button>
 
 
     </form>
@@ -55,8 +55,13 @@
         @method("delete")
         @csrf
 
-        <button type="submit" class="btn btn-primary" > Delete</button>
+        <button type="submit" class="btn btn-danger" > Delete</button>
 
     </form>
+
+    
+    <a href="{{ action('AnimalsController@index')}}" class="btn btn-primary">Back to Animals</a>
+
+
 
 @endsection

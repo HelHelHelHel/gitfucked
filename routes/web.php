@@ -12,5 +12,6 @@
 */
 
 Route::get('/', 'AnimalsController@index');
-
+Route::get('/search', 'AnimalsController@search');
 Route::resource('/api/animals', 'AnimalsController');
+

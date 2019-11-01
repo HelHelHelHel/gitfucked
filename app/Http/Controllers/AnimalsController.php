@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Animal;
+use App\Client;
 
 class AnimalsController extends Controller
 {
@@ -14,7 +15,8 @@ class AnimalsController extends Controller
      */
     public function index()
     {
-        return Animal::limit(20)->get();
+        $animals = Animal::with('client')->paginate(21);
+        return view('welcome', compact('animals'));
     }
 
     /**
@@ -100,6 +102,17 @@ class AnimalsController extends Controller
         Animal::destroy($id); 
         
         return redirect(action('AnimalsController@index'));
+        
+    }
+    public function search(Request $request) 
+    {
+        $surname = $request->get('surname');
+        
+        $client = Client::with('animals')->where('surname', "{$surname}")->first();
+        
+        $animals = $client->animals;
+        
+        return view('welcome', compact('animals'));
         
     }
 }
