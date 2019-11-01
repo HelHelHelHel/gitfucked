@@ -1,9 +1,9 @@
 @extends('layout')
 @section('content')
     
-<h1>Pets R Us Hospital</h1>
+<h1 style="text-align:center; margin-top:1rem">Pets R Us Hospital</h1>
 
-<form action="{{ 'search' }}" method="get" role="search">
+<form style="text-align:center" action="{{ 'search' }}" method="get" role="search">
         
         @csrf
         <input type="text" name="surname" placeholder="surname"/>
@@ -14,8 +14,8 @@
 <div class="row">
 @foreach ($animals as $animal)
 
-    <div class="card col-md-3" style="margin: 2rem">
-        <img src="{{ 'images/'.$animal->photo_url}}" class="card-img-top" alt="...">
+    <div class="card col-md-3" style="margin: 2rem; margin-left: 4rem; text-align: center">
+        <img style="height: 17rem; width: 20rem " src="{{ '/images/'.$animal->photo_url}}" class="card-img-top" alt="...">
         <div class="card-body">
         <h5 class="card-title">{{ $animal->name }}</h5>
           <ul>
@@ -26,6 +26,7 @@
               {{ $animal->client->surname }}</li>
             </ul>
           <a href="{{ action('AnimalsController@edit', $animal->id)}}" class="btn btn-primary">Edit</a>
+          <a href="{{ action('AnimalsController@show', $animal->id)}}" class="btn btn-primary">Details</a>
         </div>
       </div>
 

@@ -58,7 +58,9 @@ class AnimalsController extends Controller
      */
     public function show($id)
     {
-        //
+        $animal = Animal::findOrFail($id);
+
+        return view('show', compact('animal'));
     }
 
     /**

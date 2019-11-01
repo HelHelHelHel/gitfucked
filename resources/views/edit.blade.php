@@ -60,7 +60,7 @@
     </form>
 
     
-    <a href="{{ action('AnimalsController@index')}}" class="btn btn-primary">Back to Animals</a>
+    <a href="{{ url('/')}}" class="btn btn-primary">Back to Animals</a>
 
 
 
